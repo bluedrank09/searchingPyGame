@@ -1,11 +1,11 @@
 import pygame
 
 #creating ryan sprite
-class Ryan(pygame.sprite.Sprite):
-    def __init__(self):
-        super().__init__()
-        self.image = pygame.image.load('graphics/ryan/ryan1.png').convert_alpha()
-        self.rect = self.image.get_rect(midbottom = (80, 300))
+# class Ryan(pygame.sprite.Sprite):
+#     def __init__(self):
+#         super().__init__()
+#         self.image = pygame.image.load('graphics/ryan/ryan1.png').convert_alpha()
+#         self.rect = self.image.get_rect(midbottom = (80, 300))
 
 #creating vampire sprite
 class Vampire(pygame.sprite.Sprite):
@@ -14,7 +14,17 @@ class Vampire(pygame.sprite.Sprite):
         _vampire = pygame.image.load('graphics/vampire/vampire.png').convert_alpha() 
         self.image = pygame.transform.scale(_vampire, (_vampire.get_width()-88, _vampire.get_height()-200))
         #print(f"vampire  width is {_vampire.get_width()} height is {_vampire.get_height()}")
-        self.rect = self.image.get_rect(midbottom = (80, 200))       
+        self.rect = self.image.get_rect(midbottom = (80, 200))  
+
+    def update(self, event_type):
+        print(f"Updating vampire")
+        if event_type == 1 :
+
+            if self.rect.x < 529:
+                self.rect.x += 10
+
+            if self.rect.y < 400: 
+                self.rect.y += 10
 
 #creating diamond sprite
 class Diamond(pygame.sprite.Sprite):
@@ -81,7 +91,16 @@ class Flower(pygame.sprite.Sprite):
         _flower = pygame.image.load('graphics/flower/flower.png').convert_alpha()
         self.image = pygame.transform.scale(_flower, (_flower.get_width()+130, _flower.get_height()+130))
         #print(f"flower width is {_flower.get_width()} height is {_flower.get_height()}")
-        self.rect = self.image.get_rect(midbottom = (1080,650))        
+        self.rect = self.image.get_rect(midbottom = (1080,650))
+
+#creating ppf sprite
+class PPF(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        _ppf = pygame.image.load('graphics/ppf/probePositionFormula.jpeg').convert_alpha()
+        self.image = pygame.transform.scale(_ppf, (_ppf.get_width()-770, _ppf.get_height()-40))
+        print(f"ppf width is {_ppf.get_width()} height is {_ppf.get_height()}")
+        self.rect = self.image.get_rect(midbottom = (950,170))                
                
 
 
