@@ -20,11 +20,19 @@ class Vampire(pygame.sprite.Sprite):
         print(f"Updating vampire")
         if event_type == 1 :
 
-            if self.rect.x < 529:
+            if self.rect.x < 670:
                 self.rect.x += 10
 
             if self.rect.y < 400: 
                 self.rect.y += 10
+
+        if event_type == 2 :
+
+            if self.rect.x < 770:
+                self.rect.x += 10
+
+            if self.rect.y < 400: 
+                self.rect.y += 10        
 
 #creating diamond sprite
 class Diamond(pygame.sprite.Sprite):
@@ -34,6 +42,10 @@ class Diamond(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(_diamond, (_diamond.get_width()-1729, _diamond.get_height()-1387))
         #print(f"diamond width is {_diamond.get_width()} height is {_diamond.get_height()}")
         self.rect = self.image.get_rect(midbottom = (100,570))
+
+    def update(self, action):
+        if action == "Kill":
+            self.kill()    
          
 #creating bluegem sprite
 class BlueGem(pygame.sprite.Sprite):
@@ -42,7 +54,11 @@ class BlueGem(pygame.sprite.Sprite):
         _bluegem = pygame.image.load('graphics/blueGem/diamond_blue.png').convert_alpha()
         self.image = pygame.transform.scale(_bluegem, (_bluegem.get_width()-1699, _bluegem.get_height()-1357))
         #print(f"bluegem width is {_bluegem.get_width()} height is {_bluegem.get_height()}")
-        self.rect = self.image.get_rect(midbottom = (225,570)) 
+        self.rect = self.image.get_rect(midbottom = (225,570))
+
+    def update(self, action):
+        if action == "Killit":
+            self.kill()     
 
 #creating purplegem sprite
 class PurpleGem(pygame.sprite.Sprite):
@@ -52,7 +68,10 @@ class PurpleGem(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(_purplegem, (_purplegem.get_width()-1684, _purplegem.get_height()-1342))
         #print(f"purplegem width is {_purplegem.get_width()} height is {_purplegem.get_height()}")
         self.rect = self.image.get_rect(midbottom = (370,570))  
-                                             
+     
+    def update(self, action):
+        if action == "KillPurple":
+            self.kill()                                       
 
 #creating redgem sprite
 class RedGem(pygame.sprite.Sprite):
@@ -62,6 +81,10 @@ class RedGem(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(_redgem, (_redgem.get_width()-1668, _redgem.get_height()-1326))
         #print(f"redgem width is {_redgem.get_width()} height is {_redgem.get_height()}")
         self.rect = self.image.get_rect(midbottom = (529,570))  
+
+    def update(self, action):
+        if action == "KillRed":
+            self.kill()    
         
         
 
@@ -73,6 +96,10 @@ class Moon(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(_moon, (_moon.get_width()-300, _moon.get_height()-300))
         print(f"Moon width is {_moon.get_width()} height is {_moon.get_height()}")
         self.rect = self.image.get_rect(midbottom = (712,570))  
+
+    def update(self, action):
+        if action == "KillMoon":
+            self.kill()    
         
         
 #creating robot sprite
